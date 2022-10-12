@@ -1,0 +1,54 @@
+#CART PAGE
+#The user is directed to the cart page after saving desired items for item pages and clicking on
+#the cart button on the menu page. This page contains information about the selected items for
+#the user to confirm his/her decision before proceeding further
+
+def cart():
+ window_cart = tk.Tk()
+ window_cart.geometry('300x400')
+ window_cart.title("SMALL BASKET - CART")
+ window_cart.configure(background='light blue')
+ i = 0
+ r, c = 0, 0
+
+ fruits_qty1 = [0, 0, 0]
+ z=10
+ for item in Fruits:
+ if fruits_qty[i] > 0:
+ tk.Label(window_cart, text = item+" x"+str(fruits_qty[i])+" -- Rs.
+ "+str(fruits_qty[i]*fruits_price[i]), bg = "light blue").place(x=10, y=z)
+ z+= 40
+ i += 1
+
+
+ vegetables_qty1 = [0, 0, 0]
+ i = 0
+ for item in Vegetables:
+ if vegetables_qty[i] > 0: 
+
+tk.Label(window_cart, text = item+" x"+str(vegetables_qty[i])+" -- Rs.
+ "+str(vegetables_qty[i]*vegetables_price[i]), bg = "light blue").place(x=10, y=z)
+ z=z+40
+ i += 1
+
+ chips_qty1 = [0, 0, 0]
+ i = 0
+ for item in Chips:
+ if chips_qty[i] > 0:
+ tk.Label(window_cart, text = item+" x"+str(chips_qty[i])+" -- Rs.
+ "+str(chips_qty[i]*chips_price[i]), bg = "light blue").place(x=10, y=z)
+ z += 40
+ i += 1
+ bakery_qty1 = [0, 0, 0]
+ i = 0
+ for item in Bakery:
+ if bakery_qty[i] > 0:
+ tk.Label(window_cart, text = item+" x"+str(bakery_qty[i])+" -- Rs.
+ "+str(bakery_qty[i]*bakery_price[i]), bg = "light blue").place(x=10, y=z)
+ z += 40
+ i += 1
+CODE FOR BILL BUTTON:
+ tk.Button(window_cart, text = "Proceed To Bill", command = bill, bg = "light
+ blue").place(x=20, y=z+80)
+
+ window_cart.mainloop() 

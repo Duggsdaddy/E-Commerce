@@ -1,0 +1,18 @@
+#SUMMARY PAGE
+#The user will be shown a visual representation of the summary of their order as a bar graph,
+#showing the items bought by the customer and the respective quantities. This part of the
+#program utilises the pandas library to create a data frame from a dictionary comprising of
+#lists created early in the program. The order details will be stored as a csv file in the system,
+#which is used to plot the summary graph
+
+
+def summary():
+ window_summary = tk.Tk()
+ window_summary.geometry('500x400')
+ window_summary.title("SMALL BASKET - MENU")
+ window_summary.configure(background='light blue')
+ frame = tk.Frame(window_summary)
+#CODE FOR CSV FILE CREATION:
+ d= {'quantities':quantities}
+ df=pd.DataFrame(d,index= items)
+ df.to_csv("sum.csv") 

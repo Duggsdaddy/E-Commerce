@@ -1,0 +1,66 @@
+#MENU PAGE
+#The menu page is the start page containing the categories of items in the program as shown.
+#It consists of a search bar and clickable pictures leading to item lists in each category
+
+def menu():
+
+ window_menu = tk.Tk()
+ window_menu.geometry('500x400')
+ window_menu.title("SMALL BASKET - MENU")
+ window_menu.configure(background='light blue')
+ frame = tk.Frame(window_menu)
+ frame.pack()
+
+ categories = {"Fruits": fruits, "Vegetables": vegetables, "Chips": chips, "Bakery": bakery}
+ photos = [ ]
+ image = Image.open("/Users/srihith/Downloads/project_1/project/fruits.jpg")
+ photo_fruits = ImageTk.PhotoImage(image, master=window_menu)
+ photos.append(photo_fruits)
+ image = Image.open("/Users/srihith/Downloads/project_1/project/vegetables.jpg")
+ photo_vegetables = ImageTk.PhotoImage(image, master=window_menu)
+ photos.append(photo_vegetables)
+  image = Image.open("/Users/srihith/Downloads/project_1/project/chips.jpg")
+ photo_chips = ImageTk.PhotoImage(image, master=window_menu)
+ photos.append(photo_chips)
+ image = Image.open("/Users/srihith/Downloads/project_1/project/bakery.jpg")
+ photo_fruits = ImageTk.PhotoImage(image, master=window_menu)
+ photos.append(photo_fruits)
+
+
+ def entry1():
+ a = e1.get().lower()
+ if a == "fruits":
+ fruits()
+ elif a == "vegetables":
+ vegetables()
+ elif a == "chips":
+ chips()
+ elif a == "bakery":
+ bakery()
+ elif a == "cart":
+ cart()
+ else:
+ tk.Label(window_menu, text = "Search not found", bg = "light blue", fg = 	 	 	 	 "red").pack()
+
+ tk.Label(window_menu, text = "SEARCH", bg = "light blue").place(x=120, y=10)
+ e1 = tk.Entry(window_menu)
+ e1.place(x=180, y=10)
+
+ tk.Button(window_menu, text = "ENTER", command = entry1, height = 1, bg = "light
+green").place(x=390, y=13)
+ i = 0
+ x1, y1 = 150, 50
+
+ tk.Button(window_menu, image = photos[0], height = 100, width = 200, command = 		 categories["Fruits"], bg = "light green").place(x=35, y=50)
+ tk.Button(window_menu, image = photos[1], height = 100, width = 200, command = 		 categories["Vegetables"], bg = "light green").place(x=35, y=160)
+ tk.Button(window_menu, image = photos[2], height = 100, width = 200, command = 		 categories["Chips"], bg = "light green").place(x=260, y=50)
+ tk.Button(window_menu, image = photos[3], height = 100, width = 200, command = 		 categories["Bakery"], bg = "light green").place(x=260, y=160) 
+ 
+ 
+ #CODE FOR CART BUTTON ON MENU:
+ image = Image.open("/Users/sahith/Downloads/project_1/project/cart.jpg")
+ photo_cart = ImageTk.PhotoImage(image, master=window_menu)
+ bt1 = tk.Button(window_menu, text = "Cart", image = photo_cart, width = 40, height =
+30, command = cart, bg = "orange").place(x=230, y=290)
+ window_menu.mainloop()
+menu()

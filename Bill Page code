@@ -1,0 +1,102 @@
+#The user is directed to the bill page after pressing the “Proceed to Bill” button on the cart
+#page. Displayed on the bill page are the prices for items bought by the user as well as taxes
+#like gst and additional charges, which are all added and displayed as a total.
+
+def bill():
+ window_bill=tk.Tk()
+ window_bill.geometry('350x500')
+ window_bill.title("SMALL BASKET - BILL")
+ window_bill.configure(background='light blue')
+ r=0
+ c=2
+ i=0
+ tf=0
+ tc=0
+ tv=0
+ st=0
+ t=0
+ gst=0
+ l1=tk.Label(window_bill,text="BILL",bg="light blue",font="Ariel
+ 20").grid(row=0,column=2)
+ for item in Fruits:
+ if fruits_qty[i] > 0:
+ items.append(item)
+ quantities.append(fruits_qty[i])
+ r=r+1 
+
+ l1 = tk.Label(window_bill, text = item+" x "+str(fruits_qty[i])+" ---------------- Rs.
+ "+str(fruits_price[i]*fruits_qty[i]), bg = "light blue",font="Ariel 8").grid(row = r,
+ column = c)
+ r=r+1
+ l3=tk.Label(window_bill, text="-------------------------------------------------", bg = "light
+ blue",font="Ariel 8").grid(row = r, column = c)
+ tf= tf + fruits_price[i]*fruits_qty[i]
+ i=i+1
+ i=0
+ for item in Vegetables:
+ if vegetables_qty[i] > 0:
+ items.append(item)
+ quantities.append(vegetables_qty[i])
+ r=r+1
+ l1 = tk.Label(window_bill, text = item+" x "+str(vegetables_qty[i])+" ----------------
+ Rs. "+str(vegetables_price[i]*vegetables_qty[i]), bg = "light blue",font="Ariel
+ 8").grid(row = r, column = c)
+ r=r+1
+ l3=tk.Label(window_bill, text="-------------------------------------------------", bg = "light
+ blue",font="Ariel 8").grid(row = r, column = c)
+ tv= tv + vegetables_price[i]*vegetables_qty[i]
+ i=i+1
+ i=0
+ for item in Bakery:
+ if bakery_qty[i] > 0:
+ items.append(item)
+ quantities.append(bakery_qty[i])
+ r=r+1
+ l1 = tk.Label(window_bill, text = item+" x "+str(bakery_qty[i])+" ---------------- Rs.
+ "+str(bakery_price[i]*bakery_qty[i]), bg = "light blue",font="Ariel 8").grid(row = r,
+ column = c)
+ r=r+1
+ l3=tk.Label(window_bill, text="-------------------------------------------------", bg = "light
+ blue",font="Ariel 8").grid(row = r, column = c)
+ tc=tc + bakery_price[i]*bakery_qty[i]
+ i=i+1
+ i=0
+ for item in Chips:
+ if chips_qty[i] > 0:
+ items.append(item)
+ quantities.append(chips_qty[i])
+ r=r+1
+ l1 = tk.Label(window_bill, text = item+" x "+str(chips_qty[i])+" ---------------- Rs.
+ "+str(chips_price[i]*chips_qty[i]), bg = "light blue",font="Ariel 8").grid(row = r,
+ column = c)
+ r=r+1
+ l3=tk.Label(window_bill, text="-------------------------------------------------", bg = "light
+ blue",font="Ariel 8").grid(row = r, column = c)
+ tc=tc + chips_price[i]*chips_qty[i]
+ i=i+1 
+ 
+ 
+  st=tf+tv+tc
+ gst=round((st*(18/100)),2)
+ r=r+1
+ l4=tk.Label(window_bill,text="Sub Total -------------------- Rs."+str(st),bg="light
+ blue",font="Ariel 8").grid(row=r,column=c)
+ t=gst+st+112.0
+ r=r+1
+ l5=tk.Label(window_bill,text="GST----------------------------- Rs."+str(gst),bg="light
+ blue",font="Ariel 8").grid(row=r,column=c)
+ r=r+1
+ l6=tk.Label(window_bill,text="Delivery Charges------------- Rs.112",bg="light
+ blue",font="Ariel 8").grid(row=r,column=c)
+ r=r+1
+ l7=tk.Label(window_bill,text="Total-------------------------- Rs."+str(t),bg="light
+ blue",font="Ariel 8").grid(row=r,column=c)
+ r=r+1
+ l8=tk.Label(window_bill,text="------------- THANK YOU ---------------",bg="light
+ blue",font="Ariel 8").grid(row=r,column=c)
+CODE FOR ORDER SUMMARY BUTTON:
+summ=tk.Button(window_bill, text = "Your Order Summary", command=summary,bg="light
+ blue").place(x=210, y=10)
+
+
+ window_bill.mainloop() 

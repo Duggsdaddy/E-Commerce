@@ -1,0 +1,7 @@
+ df.plot.bar()
+ plt.show()
+
+
+
+
+ window_summary.mainloop()
